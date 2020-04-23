@@ -1,4 +1,5 @@
 import CartActionTypes from "./cart.types";
+import swal from "sweetalert";
 
 export const toggleCartHidden = () => {
   return {
@@ -21,6 +22,7 @@ export const removeItem = item => {
 };
 
 export const clearItemFromCart = item => {
+  swal("Deleted", `You deleted this item from your cart!`, "success");
   return {
     type: CartActionTypes.CLEAR_ITEM_FROM_CART,
     payload: item
