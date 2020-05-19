@@ -5,7 +5,7 @@ import CustomButton from "../CustomButton/CustomButton";
 import { signUpStart } from "../../redux/user/user.actions";
 import "./SignUp.scss";
 
-const SignUp = () => {
+const SignUp = ({ signUpStart }) => {
   const [userCredentials, setUserCredentials] = useState({
     displayName: "",
     email: "",
@@ -17,7 +17,6 @@ const SignUp = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const { signUpStart } = this.props;
 
     if (password !== confirmPassword) {
       alert("Passwords don't match");
@@ -78,7 +77,7 @@ const SignUp = () => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  signUpStart: userCredentials => dispatch(signUpStart())
+  signUpStart: userCredentials => dispatch(signUpStart(userCredentials))
 });
 
 export default connect(null, mapDispatchToProps)(SignUp);
