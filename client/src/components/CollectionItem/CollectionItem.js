@@ -1,11 +1,15 @@
 import React from "react";
+import { compose } from "redux";
+import { withRouter } from "react-router";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import { addItem } from "../../redux/cart/cart.actions";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 import CustomButton from "../CustomButton/CustomButton";
 
 import "./CollectionItem.scss";
 
-const CollectionItem = ({ item, addItem }) => {
+const CollectionItem = ({ item, addItem, currentUser }) => {
   const { name, price, imageUrl } = item;
   return (
     <div className="collection-item">
@@ -24,10 +28,17 @@ const CollectionItem = ({ item, addItem }) => {
   );
 };
 
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
+});
+
 const mapDispatchToProps = dispatch => {
   return {
     addItem: item => dispatch(addItem(item))
   };
 };
 
-export default connect(null, mapDispatchToProps)(CollectionItem);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps)
+)(CollectionItem);
