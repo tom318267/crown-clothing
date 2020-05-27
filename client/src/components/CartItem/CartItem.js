@@ -17,7 +17,10 @@ const CartItem = ({
           {quantity} x ${price}
         </span>
         <div
-          style={{ fontWeight: "bold", cursor: "pointer" }}
+          style={{
+            fontWeight: "bold",
+            cursor: "pointer",
+          }}
           onClick={() => clearItem(item)}
         >
           <i class="fas fa-trash"></i>
