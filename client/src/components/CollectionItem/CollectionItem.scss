@@ -34,6 +34,10 @@
       right: 17px;
     }
 
+    @media screen and (max-width: 768px) and (min-width: 425px) {
+      right: 21px;
+    }
+
     @media screen and (max-width: 800px) {
       display: block;
       opacity: 0.9;
@@ -41,12 +45,13 @@
       padding: 0 10px 0 10px;
     }
 
-    @media screen and (min-width: 800px) {
-      right: 24px;
+    @media screen and (max-width: 1023px) and (min-width: 801px) {
+      min-width: 100px;
+      right: 19px;
     }
 
-    @media screen and (max-width: 1440px) and (min-width: 1025px) {
-      right: 31px;
+    @media screen and (max-width: 1440px) and (min-width: 1024px) {
+      right: 23px;
     }
   }
 
