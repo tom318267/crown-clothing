@@ -16,7 +16,7 @@ const CartItem = ({
         <span className="price">
           {quantity} x ${price}
         </span>
-        <div
+        {/* <div
           style={{
             fontWeight: "bold",
             cursor: "pointer",
@@ -24,7 +24,7 @@ const CartItem = ({
           onClick={() => clearItem(item)}
         >
           <i className="fas fa-trash"></i>
-        </div>
+        </div> */}
       </div>
     </div>
   );
