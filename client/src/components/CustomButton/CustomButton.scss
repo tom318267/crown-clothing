@@ -30,6 +30,10 @@
       background-color: #357ae8;
       border: none;
     }
+
+    @media screen and (max-width: 425px) {
+      width: 200px;
+    }
   }
 
   &.inverted {
@@ -42,5 +46,10 @@
       color: white;
       border: none;
     }
+  }
+
+  @media screen and (max-width: 425px) {
+    min-width: 100px;
+    margin-right: 20px;
   }
 }
