@@ -29,12 +29,12 @@ const CollectionItem = ({ item, addItem, currentUser }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
 });
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    addItem: item => dispatch(addItem(item))
+    addItem: (item) => dispatch(addItem(item)),
   };
 };
 

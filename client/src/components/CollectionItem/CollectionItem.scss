@@ -35,7 +35,11 @@
     }
 
     @media screen and (max-width: 768px) and (min-width: 425px) {
-      right: 21px;
+      right: 17px;
+    }
+
+    @media screen and (max-width: 768px) and (min-width: 500px) {
+      right: 30px;
     }
 
     @media screen and (max-width: 800px) {
