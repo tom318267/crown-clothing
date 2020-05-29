@@ -6,6 +6,7 @@
   #login-button.custom-button {
     @media screen and (max-width: 425px) {
       margin-right: 10px;
+      min-width: unset;
     }
   }
 
