@@ -23,7 +23,7 @@ const CartItem = ({
           }}
           onClick={() => clearItem(item)}
         >
-          <i class="fas fa-trash"></i>
+          <i className="fas fa-trash"></i>
         </div>
       </div>
     </div>

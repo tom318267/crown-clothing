@@ -15,11 +15,10 @@
 
     .header-block {
       text-transform: capitalize;
-      width: 23%;
+    }
 
-      &:last-child {
-        width: 8%;
-      }
+    @media screen and (max-width: 425px) {
+      width: 80vw;
     }
   }
 
@@ -27,11 +26,20 @@
     margin-top: 30px;
     margin-left: auto;
     font-size: 36px;
+
+    @media screen and (max-width: 425px) {
+      font-size: 32px;
+      margin: 30px auto;
+    }
   }
 
   button {
     margin-left: auto;
     margin-top: 50px;
+
+    @media screen and (max-width: 425px) {
+      margin: 50px auto;
+    }
   }
 
   .test-warning {
@@ -39,5 +47,9 @@
     margin-top: 40px;
     font-size: 24px;
     color: red;
+
+    @media screen and (max-width: 425px) {
+      font-size: 20px;
+    }
   }
 }
