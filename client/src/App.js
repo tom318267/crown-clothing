@@ -1,15 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import Homepage from "./pages/Homepage/Homepage";
-import ShopPage from "./pages/Shop/ShopPage";
-import SignInAndSignUp from "./pages/SignInAndSignUp/SignInAndSignUp";
 import Header from "./components/Header/Header";
-import Checkout from "./pages/Checkout/Checkout";
 import { selectCurrentUser } from "./redux/user/user.selectors";
+import Spinner from "./components/Spinner/Spinner";
 import { checkUserSession } from "./redux/user/user.actions";
 import { createStructuredSelector } from "reselect";
 import { GlobalStyle } from "./global.styles";
+
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const ShopPage = lazy(() => import("./pages/Shop/ShopPage"));
+const SignInAndSignUp = lazy(() =>
+  import("./pages/SignInAndSignUp/SignInAndSignUp")
+);
+const Checkout = lazy(() => import("./pages/Checkout/Checkout"));
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
@@ -21,16 +25,18 @@ const App = ({ checkUserSession, currentUser }) => {
       <GlobalStyle />
       <Header />
       <Switch>
-        <Route exact path="/" component={Homepage} />
-        <Route path="/shop" component={ShopPage} />
-        <Route exact path="/checkout" component={Checkout} />
-        <Route
-          exact
-          path="/login"
-          render={() =>
-            currentUser ? <Redirect to="/" /> : <SignInAndSignUp />
-          }
-        />
+        <Suspense fallback={<Spinner />}>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route exact path="/checkout" component={Checkout} />
+          <Route
+            exact
+            path="/login"
+            render={() =>
+              currentUser ? <Redirect to="/" /> : <SignInAndSignUp />
+            }
+          />
+        </Suspense>
       </Switch>
     </div>
   );
