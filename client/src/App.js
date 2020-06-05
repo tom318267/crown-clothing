@@ -9,7 +9,7 @@ import { checkUserSession } from "./redux/user/user.actions";
 import { createStructuredSelector } from "reselect";
 import { GlobalStyle } from "./global.styles";
 
-const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const Homepage = lazy(() => import("./pages/Homepage/Homepage"));
 const ShopPage = lazy(() => import("./pages/Shop/ShopPage"));
 const SignInAndSignUp = lazy(() =>
   import("./pages/SignInAndSignUp/SignInAndSignUp")
@@ -28,7 +28,7 @@ const App = ({ checkUserSession, currentUser }) => {
       <Switch>
         <ErrorBoundary>
           <Suspense fallback={<Spinner />}>
-            <Route exact path="/" component={HomePage} />
+            <Route exact path="/" component={Homepage} />
             <Route path="/shop" component={ShopPage} />
             <Route exact path="/checkout" component={Checkout} />
             <Route
